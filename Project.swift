@@ -33,7 +33,7 @@ let project = Project(
             infoPlist: .extendingDefault(
                 with: [
                     "CFBundleDisplayName": "YTDownloader",
-                    "CFBundleShortVersionString": "1.0",
+                    "CFBundleShortVersionString": "1.0.0",
                     "CFBundleVersion": "1",
                     "LSMinimumSystemVersion": "14.0",
                     "LSApplicationCategoryType": "public.app-category.utilities",

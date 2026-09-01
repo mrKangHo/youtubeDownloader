@@ -1,6 +1,6 @@
 cask "ytdownloader" do
-  version "1.0.0"
-  sha256 "4d9ffe2613fdef116c54ee43b9dceaf09af2abaf8302c4db199525c17d97e033"
+  version "1.1.0"
+  sha256 "ec87b4dc064424527e9c2619dd92c7ee3cef72c42c2b9ebc1910c431c0cfea4f"
 
   url "https://github.com/mrKangHo/youtubeDownloader/releases/download/v#{version}/YTDownloader-#{version}.dmg"
   name "YTDownloader"

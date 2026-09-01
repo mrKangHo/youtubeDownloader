@@ -83,6 +83,7 @@ struct ActiveDownloadRowView: View {
             VStack(alignment: .leading, spacing: 4) {
                 ProgressView(value: item.progress)
                     .tint(.white)
+                    .animation(.linear(duration: 0.2), value: item.progress)
                 HStack {
                     Text("\(Int(item.progress * 100))%")
                     Spacer()
@@ -100,6 +101,7 @@ struct ActiveDownloadRowView: View {
             Label("완료", systemImage: "checkmark.circle.fill")
                 .font(.caption.bold())
                 .foregroundStyle(.green)
+                .transition(.scale(scale: 0.7).combined(with: .opacity))
         case .failed(let message):
             Label(message, systemImage: "xmark.circle.fill")
                 .font(.caption)
@@ -124,16 +126,13 @@ struct ActiveDownloadRowView: View {
 
             controlButton("trash", tint: .red) { viewModel.delete(item) }
         }
+        .animation(.easeOut(duration: 0.15), value: item.status)
     }
 
     private func controlButton(_ systemImage: String, tint: Color = .white, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Image(systemName: systemImage)
-                .font(.system(size: 13, weight: .semibold))
-                .foregroundStyle(tint)
-                .frame(width: 28, height: 28)
-                .background(.black.opacity(0.45), in: Circle())
         }
-        .buttonStyle(.plain)
+        .buttonStyle(MaterialIconButtonStyle(tint: tint))
     }
 }

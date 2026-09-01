@@ -1,8 +1,18 @@
+import AppKit
 import Foundation
+import SwiftUI
 import Domain
 
 @MainActor
 public final class DownloadListViewModel: ObservableObject {
+    /// 대기 ↔ 진행 목록 사이 이동에 쓰는 애니메이션. 시스템 손쉬운 사용의 "동작 줄이기"를
+    /// 켜둔 경우 스프링 대신 짧은 크로스페이드로 대체한다.
+    private var listTransition: Animation {
+        NSWorkspace.shared.accessibilityDisplayShouldReduceMotion
+            ? .easeInOut(duration: 0.15)
+            : .spring(response: 0.4, dampingFraction: 1.0)
+    }
+
     /// 아직 다운로드를 시작하지 않은 항목 (대기/조회중/실패/취소)
     @Published public var pendingItems: [DownloadItemViewModel] = []
     /// 다운로드가 시작된 항목 (진행중/일시정지/완료/실패)
@@ -38,7 +48,9 @@ public final class DownloadListViewModel: ObservableObject {
 
     public func addAndFetch(url: String) {
         let item = DownloadItemViewModel(url: url)
-        pendingItems.insert(item, at: 0)
+        withAnimation(listTransition) {
+            pendingItems.insert(item, at: 0)
+        }
         item.status = .fetchingInfo
         Task {
             do {
@@ -58,9 +70,11 @@ public final class DownloadListViewModel: ObservableObject {
     public func start(_ item: DownloadItemViewModel) {
         guard downloadingCount() < maxConcurrent else { return }
 
-        pendingItems.removeAll { $0.id == item.id }
-        if !activeItems.contains(where: { $0.id == item.id }) {
-            activeItems.insert(item, at: 0)
+        withAnimation(listTransition) {
+            pendingItems.removeAll { $0.id == item.id }
+            if !activeItems.contains(where: { $0.id == item.id }) {
+                activeItems.insert(item, at: 0)
+            }
         }
 
         item.status = .downloading
@@ -113,8 +127,10 @@ public final class DownloadListViewModel: ObservableObject {
             item.status = .cancelled
             cancelDownload.execute(id: item.id)
         }
-        pendingItems.removeAll { $0.id == item.id }
-        activeItems.removeAll { $0.id == item.id }
+        withAnimation(listTransition) {
+            pendingItems.removeAll { $0.id == item.id }
+            activeItems.removeAll { $0.id == item.id }
+        }
     }
 
     public func processQueue() {

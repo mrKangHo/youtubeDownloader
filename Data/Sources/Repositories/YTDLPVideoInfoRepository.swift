@@ -9,11 +9,11 @@ public enum YTDLPError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .binaryNotFound:
-            return "yt-dlp 실행 파일을 찾을 수 없습니다. Homebrew로 설치하세요: brew install yt-dlp"
+            return String(localized: "yt-dlp executable not found. Install it with Homebrew: brew install yt-dlp", bundle: .main)
         case .processFailed(let message):
             return message
         case .decodeFailed:
-            return "영상 정보를 해석하지 못했습니다."
+            return String(localized: "Failed to parse video information.", bundle: .main)
         }
     }
 }
@@ -45,7 +45,7 @@ public final class YTDLPVideoInfoRepository: VideoInfoRepository {
         process.waitUntilExit()
 
         guard process.terminationStatus == 0 else {
-            let message = String(data: stderrData, encoding: .utf8) ?? "yt-dlp 실행 실패"
+            let message = String(data: stderrData, encoding: .utf8) ?? String(localized: "yt-dlp execution failed", bundle: .main)
             throw YTDLPError.processFailed(message)
         }
 

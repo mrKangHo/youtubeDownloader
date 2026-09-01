@@ -7,26 +7,26 @@ struct SettingsView: View {
 
     var body: some View {
         Form {
-            Section("저장 위치") {
+            Section("Save Location") {
                 HStack {
                     Text(viewModel.saveDirectory)
                         .lineLimit(1)
                         .truncationMode(.middle)
                         .foregroundStyle(.secondary)
                     Spacer()
-                    Button("변경") { chooseDirectory() }
+                    Button("Change") { chooseDirectory() }
                 }
             }
 
-            Section("동시 다운로드") {
-                Stepper("최대 \(viewModel.maxConcurrent)개", value: $viewModel.maxConcurrent, in: 1...5)
+            Section("Concurrent Downloads") {
+                Stepper("Max \(viewModel.maxConcurrent)", value: $viewModel.maxConcurrent, in: 1...5)
             }
         }
         .padding()
         .frame(width: 420, height: 180)
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
-                Button("닫기") { dismiss() }
+                Button("Close") { dismiss() }
             }
         }
     }

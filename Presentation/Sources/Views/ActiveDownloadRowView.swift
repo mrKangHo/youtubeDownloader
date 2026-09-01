@@ -51,11 +51,11 @@ struct ActiveDownloadRowView: View {
         .listRowSeparator(.hidden)
         .contextMenu {
             if item.status == .downloading {
-                Button("일시정지") { viewModel.pause(item) }
+                Button("Pause") { viewModel.pause(item) }
             } else if item.status == .paused {
-                Button("재개") { viewModel.resume(item) }
+                Button("Resume") { viewModel.resume(item) }
             }
-            Button("삭제", role: .destructive) { viewModel.delete(item) }
+            Button("Delete", role: .destructive) { viewModel.delete(item) }
         }
     }
 
@@ -91,14 +91,14 @@ struct ActiveDownloadRowView: View {
                         Text(item.speedText)
                         Text("ETA \(item.etaText)")
                     } else {
-                        Text("일시정지됨")
+                        Text("Paused")
                     }
                 }
                 .font(.caption2)
                 .foregroundStyle(.white.opacity(0.85))
             }
         case .completed:
-            Label("완료", systemImage: "checkmark.circle.fill")
+            Label("Completed", systemImage: "checkmark.circle.fill")
                 .font(.caption.bold())
                 .foregroundStyle(.green)
                 .transition(.scale(scale: 0.7).combined(with: .opacity))

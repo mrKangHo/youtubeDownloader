@@ -11,10 +11,10 @@ public struct ContentView: View {
         NavigationSplitView {
             VStack(spacing: 0) {
                 HStack {
-                    TextField("YouTube URL 붙여넣기", text: $urlText)
+                    TextField("Paste YouTube URL", text: $urlText)
                         .textFieldStyle(.roundedBorder)
                         .onSubmit(addURL)
-                    Button("추가", action: addURL)
+                    Button("Add", action: addURL)
                         .disabled(urlText.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
                 .padding()
@@ -30,20 +30,20 @@ public struct ContentView: View {
                     Button {
                         showSettings = true
                     } label: {
-                        Label("설정", systemImage: "gearshape")
+                        Label("Settings", systemImage: "gearshape")
                     }
                 }
             }
         } detail: {
             if !viewModel.isYTDLPAvailable {
                 ContentUnavailableView(
-                    "yt-dlp를 찾을 수 없음",
+                    "yt-dlp not found",
                     systemImage: "exclamationmark.triangle",
-                    description: Text("터미널에서 실행: brew install yt-dlp")
+                    description: Text("Run in Terminal: brew install yt-dlp")
                 )
             } else if viewModel.activeItems.isEmpty {
                 ContentUnavailableView(
-                    "다운로드 중인 항목 없음",
+                    "No active downloads",
                     systemImage: "arrow.down.circle"
                 )
             } else {

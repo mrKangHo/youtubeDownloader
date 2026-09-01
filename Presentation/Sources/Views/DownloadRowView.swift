@@ -18,7 +18,7 @@ struct DownloadRowView: View {
 
             if !item.formats.isEmpty, item.status == .queued {
                 HStack {
-                    Picker("화질", selection: Binding(
+                    Picker("Quality", selection: Binding(
                         get: { item.selectedFormatId ?? "" },
                         set: { item.selectedFormatId = $0 }
                     )) {
@@ -31,7 +31,7 @@ struct DownloadRowView: View {
 
                     Spacer()
 
-                    Button("다운로드") {
+                    Button("Download") {
                         viewModel.start(item)
                     }
                 }
@@ -46,7 +46,7 @@ struct DownloadRowView: View {
         }
         .padding(.vertical, 4)
         .contextMenu {
-            Button("삭제", role: .destructive) { viewModel.delete(item) }
+            Button("Delete", role: .destructive) { viewModel.delete(item) }
         }
     }
 
@@ -54,15 +54,15 @@ struct DownloadRowView: View {
     private var statusBadge: some View {
         switch item.status {
         case .queued:
-            Label("대기", systemImage: "clock").font(.caption).foregroundStyle(.secondary)
+            Label("Queued", systemImage: "clock").font(.caption).foregroundStyle(.secondary)
         case .fetchingInfo:
             ProgressView().controlSize(.small)
         case .downloading, .paused, .completed:
             EmptyView()
         case .failed:
-            Label("실패", systemImage: "xmark.circle.fill").font(.caption).foregroundStyle(.red)
+            Label("Failed", systemImage: "xmark.circle.fill").font(.caption).foregroundStyle(.red)
         case .cancelled:
-            Label("취소됨", systemImage: "slash.circle").font(.caption).foregroundStyle(.secondary)
+            Label("Cancelled", systemImage: "slash.circle").font(.caption).foregroundStyle(.secondary)
         }
     }
 }

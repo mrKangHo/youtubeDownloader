@@ -1,0 +1,181 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Add" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "追加" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "추가" } }
+      }
+    },
+    "Cancelled" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cancelled" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "キャンセル済み" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "취소됨" } }
+      }
+    },
+    "Change" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Change" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "変更" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "변경" } }
+      }
+    },
+    "Close" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Close" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "閉じる" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "닫기" } }
+      }
+    },
+    "Completed" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Completed" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "完了" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "완료" } }
+      }
+    },
+    "Concurrent Downloads" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Concurrent Downloads" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "同時ダウンロード" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "동시 다운로드" } }
+      }
+    },
+    "Delete" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "削除" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "삭제" } }
+      }
+    },
+    "Download" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Download" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ダウンロード" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "다운로드" } }
+      }
+    },
+    "ETA %@" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "ETA %@" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ETA %@" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "ETA %@" } }
+      }
+    },
+    "Failed" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Failed" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "失敗" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "실패" } }
+      }
+    },
+    "Failed to parse video information." : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Failed to parse video information." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "動画情報を解析できませんでした。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "영상 정보를 해석하지 못했습니다." } }
+      }
+    },
+    "Max %lld" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Max %lld" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "最大%lld件" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "최대 %lld개" } }
+      }
+    },
+    "No active downloads" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No active downloads" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ダウンロード中の項目はありません" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "다운로드 중인 항목 없음" } }
+      }
+    },
+    "Paste YouTube URL" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Paste YouTube URL" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "YouTube の URL を貼り付け" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "YouTube URL 붙여넣기" } }
+      }
+    },
+    "Paused" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Paused" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "一時停止中" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "일시정지됨" } }
+      }
+    },
+    "Pause" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Pause" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "一時停止" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "일시정지" } }
+      }
+    },
+    "Quality" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Quality" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "画質" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "화질" } }
+      }
+    },
+    "Queued" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Queued" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "待機中" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "대기" } }
+      }
+    },
+    "Resume" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Resume" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "再開" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "재개" } }
+      }
+    },
+    "Run in Terminal: brew install yt-dlp" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Run in Terminal: brew install yt-dlp" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ターミナルで実行してください: brew install yt-dlp" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "터미널에서 실행: brew install yt-dlp" } }
+      }
+    },
+    "Save Location" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Save Location" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "保存先" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "저장 위치" } }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "設定" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "설정" } }
+      }
+    },
+    "yt-dlp executable not found. Install it with Homebrew: brew install yt-dlp" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "yt-dlp executable not found. Install it with Homebrew: brew install yt-dlp" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "yt-dlp の実行ファイルが見つかりません。Homebrew でインストールしてください: brew install yt-dlp" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "yt-dlp 실행 파일을 찾을 수 없습니다. Homebrew로 설치하세요: brew install yt-dlp" } }
+      }
+    },
+    "yt-dlp execution failed" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "yt-dlp execution failed" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "yt-dlp の実行に失敗しました" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "yt-dlp 실행 실패" } }
+      }
+    },
+    "yt-dlp not found" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "yt-dlp not found" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "yt-dlp が見つかりません" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "yt-dlp를 찾을 수 없음" } }
+      }
+    }
+  },
+  "version" : "1.0"
+}

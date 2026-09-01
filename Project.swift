@@ -41,14 +41,18 @@ let project = Project(
                 ]
             ),
             buildableFolders: [
-                .folder(Path("App/Sources"))
+                .folder(Path("App/Sources")),
+                .folder(Path("App/Resources")),
             ],
             entitlements: .file(path: "App/YTDownloader.entitlements"),
             dependencies: [
                 .target(name: "Domain"),
                 .target(name: "Data"),
                 .target(name: "Presentation"),
-            ]
+            ],
+            settings: .settings(base: [
+                "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon"
+            ])
         ),
     ]
 )

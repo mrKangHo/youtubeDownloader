@@ -1,11 +1,13 @@
 import SwiftUI
 
-struct ContentView: View {
-    @EnvironmentObject var manager: DownloadManager
+public struct ContentView: View {
+    @EnvironmentObject var viewModel: DownloadListViewModel
     @State private var urlText: String = ""
     @State private var showSettings = false
 
-    var body: some View {
+    public init() {}
+
+    public var body: some View {
         NavigationSplitView {
             VStack(spacing: 0) {
                 HStack {
@@ -17,7 +19,7 @@ struct ContentView: View {
                 }
                 .padding()
 
-                List(manager.pendingItems) { item in
+                List(viewModel.pendingItems) { item in
                     DownloadRowView(item: item)
                 }
                 .listStyle(.inset)
@@ -33,37 +35,33 @@ struct ContentView: View {
                 }
             }
         } detail: {
-            if !BinaryManager.isAvailable {
+            if !viewModel.isYTDLPAvailable {
                 ContentUnavailableView(
                     "yt-dlp를 찾을 수 없음",
                     systemImage: "exclamationmark.triangle",
                     description: Text("터미널에서 실행: brew install yt-dlp")
                 )
-            } else if manager.activeItems.isEmpty {
+            } else if viewModel.activeItems.isEmpty {
                 ContentUnavailableView(
                     "다운로드 중인 항목 없음",
                     systemImage: "arrow.down.circle"
                 )
             } else {
-                List(manager.activeItems) { item in
+                List(viewModel.activeItems) { item in
                     ActiveDownloadRowView(item: item)
                 }
                 .listStyle(.inset)
             }
         }
         .sheet(isPresented: $showSettings) {
-            SettingsView().environmentObject(manager)
+            SettingsView().environmentObject(viewModel)
         }
     }
 
     private func addURL() {
         let trimmed = urlText.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return }
-        manager.addAndFetch(url: trimmed)
+        viewModel.addAndFetch(url: trimmed)
         urlText = ""
     }
-}
-
-#Preview {
-    ContentView().environmentObject(DownloadManager())
 }

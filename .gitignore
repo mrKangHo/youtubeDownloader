@@ -3,5 +3,9 @@ xcuserdata/
 DerivedData/
 *.xcworkspace/xcuserdata/
 
-# xcodegen이 project.yml로부터 생성함 (xcodegen generate)
-YTDownloader.xcodeproj/
+# Tuist가 생성함 (tuist generate)
+*.xcodeproj
+*.xcworkspace
+.build/
+Tuist/.build/
+Derived/

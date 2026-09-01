@@ -1,10 +1,11 @@
 import SwiftUI
+import Domain
 
 /// 오른쪽 목록에 쓰인다: 다운로드 시작(진행중/일시정지/완료)된 항목이 여기 나타난다.
 /// 큰 썸네일을 배경으로 깔고, 하단에 그라데이션 스크림 위에 정보를 얹는 포스터 카드 형태.
 struct ActiveDownloadRowView: View {
-    @ObservedObject var item: DownloadItem
-    @EnvironmentObject var manager: DownloadManager
+    @ObservedObject var item: DownloadItemViewModel
+    @EnvironmentObject var viewModel: DownloadListViewModel
 
     var body: some View {
         GeometryReader { geo in
@@ -27,7 +28,7 @@ struct ActiveDownloadRowView: View {
                         .lineLimit(1)
                         .shadow(radius: 2)
 
-                    Label(item.outputPath ?? manager.saveDirectory, systemImage: "folder")
+                    Label(item.outputPath ?? viewModel.saveDirectory, systemImage: "folder")
                         .font(.caption)
                         .foregroundStyle(.white.opacity(0.85))
                         .lineLimit(1)
@@ -50,11 +51,11 @@ struct ActiveDownloadRowView: View {
         .listRowSeparator(.hidden)
         .contextMenu {
             if item.status == .downloading {
-                Button("일시정지") { manager.pause(item) }
+                Button("일시정지") { viewModel.pause(item) }
             } else if item.status == .paused {
-                Button("재개") { manager.resume(item) }
+                Button("재개") { viewModel.resume(item) }
             }
-            Button("삭제", role: .destructive) { manager.delete(item) }
+            Button("삭제", role: .destructive) { viewModel.delete(item) }
         }
     }
 
@@ -114,14 +115,14 @@ struct ActiveDownloadRowView: View {
         HStack(spacing: 8) {
             switch item.status {
             case .downloading:
-                controlButton("pause.fill") { manager.pause(item) }
+                controlButton("pause.fill") { viewModel.pause(item) }
             case .paused:
-                controlButton("play.fill") { manager.resume(item) }
+                controlButton("play.fill") { viewModel.resume(item) }
             default:
                 EmptyView()
             }
 
-            controlButton("trash", tint: .red) { manager.delete(item) }
+            controlButton("trash", tint: .red) { viewModel.delete(item) }
         }
     }
 

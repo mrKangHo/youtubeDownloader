@@ -1,13 +1,13 @@
 import Foundation
 
-enum BinaryManager {
+public enum BinaryManager {
     static let candidatePaths = [
         "/opt/homebrew/bin/yt-dlp",
         "/usr/local/bin/yt-dlp",
         "/usr/bin/yt-dlp"
     ]
 
-    static var ytDlpPath: String? {
+    public static var ytDlpPath: String? {
         if let bundled = Bundle.main.path(forResource: "yt-dlp", ofType: nil) {
             return bundled
         }
@@ -17,7 +17,7 @@ enum BinaryManager {
         return nil
     }
 
-    static var ffmpegDirectory: String? {
+    public static var ffmpegDirectory: String? {
         let candidates = ["/opt/homebrew/bin", "/usr/local/bin"]
         for dir in candidates where FileManager.default.isExecutableFile(atPath: dir + "/ffmpeg") {
             return dir
@@ -25,5 +25,5 @@ enum BinaryManager {
         return nil
     }
 
-    static var isAvailable: Bool { ytDlpPath != nil }
+    public static var isAvailable: Bool { ytDlpPath != nil }
 }

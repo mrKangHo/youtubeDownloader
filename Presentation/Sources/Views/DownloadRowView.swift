@@ -1,9 +1,10 @@
 import SwiftUI
+import Domain
 
 /// 왼쪽 목록에 쓰인다: 아직 다운로드를 시작하지 않은 항목(대기/조회중/실패/취소)만 여기 나타난다.
 struct DownloadRowView: View {
-    @ObservedObject var item: DownloadItem
-    @EnvironmentObject var manager: DownloadManager
+    @ObservedObject var item: DownloadItemViewModel
+    @EnvironmentObject var viewModel: DownloadListViewModel
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
@@ -31,7 +32,7 @@ struct DownloadRowView: View {
                     Spacer()
 
                     Button("다운로드") {
-                        manager.startDownload(item)
+                        viewModel.start(item)
                     }
                 }
             }
@@ -45,7 +46,7 @@ struct DownloadRowView: View {
         }
         .padding(.vertical, 4)
         .contextMenu {
-            Button("삭제", role: .destructive) { manager.delete(item) }
+            Button("삭제", role: .destructive) { viewModel.delete(item) }
         }
     }
 

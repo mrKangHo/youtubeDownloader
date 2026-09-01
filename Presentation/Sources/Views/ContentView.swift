@@ -4,6 +4,7 @@ public struct ContentView: View {
     @EnvironmentObject var viewModel: DownloadListViewModel
     @State private var urlText: String = ""
     @State private var showSettings = false
+    @State private var showBrowser = false
 
     public init() {}
 
@@ -17,14 +18,27 @@ public struct ContentView: View {
                     Button("Add", action: addURL)
                         .disabled(urlText.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
-                .padding()
+                .padding([.top, .horizontal])
+
+                Button {
+                    showBrowser = true
+                } label: {
+                    Label("Browse YouTube", systemImage: "play.rectangle.fill")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.brandRed)
+                .padding([.horizontal, .bottom])
+                .padding(.top, 4)
 
                 List(viewModel.pendingItems) { item in
                     DownloadRowView(item: item)
                 }
                 .listStyle(.inset)
+                .scrollContentBackground(.hidden)
             }
             .frame(minWidth: 420)
+            .brandedBackground()
             .toolbar {
                 ToolbarItem {
                     Button {
@@ -35,26 +49,35 @@ public struct ContentView: View {
                 }
             }
         } detail: {
-            if !viewModel.isYTDLPAvailable {
-                ContentUnavailableView(
-                    "yt-dlp not found",
-                    systemImage: "exclamationmark.triangle",
-                    description: Text("Run in Terminal: brew install yt-dlp")
-                )
-            } else if viewModel.activeItems.isEmpty {
-                ContentUnavailableView(
-                    "No active downloads",
-                    systemImage: "arrow.down.circle"
-                )
-            } else {
-                List(viewModel.activeItems) { item in
-                    ActiveDownloadRowView(item: item)
+            Group {
+                if !viewModel.isYTDLPAvailable {
+                    ContentUnavailableView(
+                        "yt-dlp not found",
+                        systemImage: "exclamationmark.triangle",
+                        description: Text("Run in Terminal: brew install yt-dlp")
+                    )
+                } else if viewModel.activeItems.isEmpty {
+                    ContentUnavailableView(
+                        "No active downloads",
+                        systemImage: "arrow.down.circle"
+                    )
+                } else {
+                    List(viewModel.activeItems) { item in
+                        ActiveDownloadRowView(item: item)
+                    }
+                    .listStyle(.inset)
+                    .scrollContentBackground(.hidden)
                 }
-                .listStyle(.inset)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .brandedBackground()
         }
+        .tint(.brandRed)
         .sheet(isPresented: $showSettings) {
             SettingsView().environmentObject(viewModel)
+        }
+        .sheet(isPresented: $showBrowser) {
+            YouTubeBrowserView().environmentObject(viewModel)
         }
     }
 

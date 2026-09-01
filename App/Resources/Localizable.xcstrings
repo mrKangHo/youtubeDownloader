@@ -8,6 +8,27 @@
         "ko" : { "stringUnit" : { "state" : "translated", "value" : "추가" } }
       }
     },
+    "Added" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Added" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "追加済み" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "추가됨" } }
+      }
+    },
+    "Add to Downloads" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add to Downloads" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ダウンロードに追加" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "다운로드에 추가" } }
+      }
+    },
+    "Browse YouTube" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Browse YouTube" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "YouTube を見る" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "유튜브 둘러보기" } }
+      }
+    },
     "Cancelled" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Cancelled" } },

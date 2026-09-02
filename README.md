@@ -26,6 +26,16 @@
 - Configurable save location and max concurrent downloads
 - App localized in English, Korean, and Japanese
 
+## Install
+
+```sh
+brew tap mrKangHo/ytdownloader https://github.com/mrKangHo/youtubeDownloader
+brew install --cask ytdownloader
+```
+
+This also installs `yt-dlp` and `ffmpeg` as dependencies. The cask formula lives
+in [`Casks/ytdownloader.rb`](Casks/ytdownloader.rb).
+
 ## Requirements
 
 - macOS 14.0+
